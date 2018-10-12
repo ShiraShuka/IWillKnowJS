@@ -13,41 +13,46 @@ to two decimal places.*/
 
 const TAX_RATE = 0.18;
 const PIZZA_PRICE = 49.99;
-const TOPPING_PRICE = 9.99;
+const TOPPING_PRICE = 5.99;
 const MUNCH_THRESHOLD = 60;
 
-const initial_balance = Math.random() * 1000;
+var accountBalance = Math.random() * 1000;
+var numPizzas = 0;
+const initial_balance = accountBalance;
 
-var account_balance = initial_balance;
-var num_pizzas = 0;
+function calcTotalPrice(amount){
+    return amount += amount * TAX_RATE;
+}
 
 function buyPizza() {
-    if (account_balance < PIZZA_PRICE){
+    totalPizzaPrice = calcTotalPrice(PIZZA_PRICE); 
+    if (accountBalance < totalPizzaPrice){
         console.log("There is not enough money to buy pizza!")
         return 
     }
-    account_balance -= PIZZA_PRICE;
-    num_pizzas++
+    accountBalance -= totalPizzaPrice;
+    numPizzas++
     console.log("You got a pizza!");
 }
 
 function addToppings(){
-    var munch_balance = 0
-    while (account_balance >= TOPPING_PRICE && munch_balance < MUNCH_THRESHOLD){
-        account_balance -= TOPPING_PRICE;
-        munch_balance += TOPPING_PRICE;
+    var munchBalance = 0
+    var totalToppingPrice = calcTotalPrice(TOPPING_PRICE);
+    while (accountBalance >= totalToppingPrice && munchBalance < MUNCH_THRESHOLD){
+        accountBalance -= totalToppingPrice;
+        munchBalance += totalToppingPrice;
         console.log("You got a topping!");
     }
 }
 
-while(account_balance >= PIZZA_PRICE) {
+while(accountBalance >= PIZZA_PRICE) {
     buyPizza();
     addToppings();
 }
 
 console.log(`\nInitial blance: ${initial_balance.toFixed(2)}$`)
-console.log(`Total pizzas bought: ${num_pizzas}`)
-console.log(`Current balance: ${account_balance.toFixed(2)}$`)
+console.log(`Total pizzas bought: ${numPizzas}`)
+console.log(`Current balance: ${accountBalance.toFixed(2)}$`)
 
-msg = (num_pizzas > 4) ? `Hope you invited friends!` : `Better eat alone in your room`
+msg = (numPizzas > 4) ? `Hope you invited friends!` : `Better eat alone in your room`
 console.log(msg)
