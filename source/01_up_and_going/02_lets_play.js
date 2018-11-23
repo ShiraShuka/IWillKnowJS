@@ -1,3 +1,4 @@
+//some basics
 var hash = { a: 'wow', b: 'yo'};
 var b = 'a';
 console.log(hash[b]);
@@ -17,8 +18,8 @@ var b = 42;
 var c = 43;
 var d = "ops";
 
-a == b;			// compare with coercion ->true -> will coerced b to "42"
-a === b;		// compares wo coersion -> false
+a == b;	    // compare with coercion ->true -> will coerced b to "42"
+a === b;	// compares wo coersion -> false
 
 a < b // true BUT will coered a to 42 (!)
 
@@ -26,7 +27,7 @@ a < d & a > d & a == d // all will be false! because d coered to NoN which ie ne
 
     // dig deep into == and === http://www.ecma-international.org/ecma-262/5.1/
 
-// general rules 
+// general rules of equality
 a === b //if a or be are T/F , 0, "", []
 a == b // else , if you not sure what are the types use ==
 
@@ -37,7 +38,6 @@ var c = "1,2,3";
 a == c;		// true
 b == c;		// true
 a == b;		// false
-
 
 (function SOMENAME(){ console.log("I run")})(); //immediately invoked function expression (IIFE)
 
@@ -56,7 +56,7 @@ var plusOne = makeAdder(1); // will referance to add with x=1
 plusOne(5) //6
 
 
-//modules - example of how to use closures 
+// Modules - example of how to use closures 
 
 function User(){
 	var username, password;
@@ -66,12 +66,10 @@ function User(){
 		password = pw;
 
 		// do the rest of the login work
-	}
-
+    }
 	var publicAPI = {
 		login: doLogin  // login referanced to doLogin
-	};
-
+    };
 	return publicAPI;
 }
 
@@ -95,6 +93,3 @@ myFunc(); // will return undefine since its strict mode -> global is not allowed
 someHash.someHashFunc(); // someHash definition to someVar
 myFunc.call(someOtherHash); //Other also deinfes someVar 
 new myFunc(); // also undefined since new set this to a new empty object 
-
-
-
