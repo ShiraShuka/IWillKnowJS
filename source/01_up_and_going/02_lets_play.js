@@ -89,6 +89,7 @@ var someHash = { someVar: 'someHash definition to someVar', someHashFunc: myFunc
 var someOtherHash = { someVar: 'Other also deinfes someVar' };
 
     //ways to define this
+    
 myFunc(); // will return undefine since its strict mode -> global is not allowed 
 someHash.someHashFunc(); // someHash definition to someVar
 myFunc.call(someOtherHash); //Other also deinfes someVar 
