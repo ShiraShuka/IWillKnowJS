@@ -93,3 +93,4 @@ myFunc(); // will return undefine since its strict mode -> global is not allowed
 someHash.someHashFunc(); // someHash definition to someVar
 myFunc.call(someOtherHash); //Other also deinfes someVar 
 new myFunc(); // also undefined since new set this to a new empty object 
+
