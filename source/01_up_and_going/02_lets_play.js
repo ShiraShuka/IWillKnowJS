@@ -30,6 +30,10 @@ a < d & a > d & a == d // all will be false! because d coered to NoN which ie ne
 // general rules of equality
 a === b //if a or be are T/F , 0, "", []
 a == b // else , if you not sure what are the types use ==
+	//example to why not to use...
+"1"  == true //true,  but "2" is not!
+0 == false //true
+Nan == Nan // false
 
 var a = [1,2,3];
 var b = [1,2,3];
