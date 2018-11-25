@@ -19,7 +19,7 @@ var c = 43;
 var d = "ops";
 
 a == b;	    // compare with coercion ->true -> will coerced b to "42"
-a === b;	// compares wo coersion -> false
+a === b;	// compares wo coercion -> false
 
 a < b // true BUT will coered a to 42 (!)
 
